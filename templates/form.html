@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="post">
+  <div class="mb-3">
+    <label for="tanggal" class="form-label">Tanggal</label>
+    <input type="date" class="form-control" name="tanggal" required value="{{ catatan[1] if catatan else '' }}">
+  </div>
+  <div class="mb-3">
+    <label for="keterangan" class="form-label">Keterangan</label>
+    <input type="text" class="form-control" name="keterangan" required value="{{ catatan[2] if catatan else '' }}">
+  </div>
+  <div class="mb-3">
+    <label for="jumlah" class="form-label">Jumlah (Rp)</label>
+    <input type="number" step="100" class="form-control" name="jumlah" required value="{{ catatan[3] if catatan else '' }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Tipe</label>
+    <select name="tipe" class="form-select" required>
+      <option value="">-- Pilih --</option>
+      <option value="Pemasukan" {% if catatan and catatan[4] == 'Pemasukan' %}selected{% endif %}>Pemasukan</option>
+      <option value="Pengeluaran" {% if catatan and catatan[4] == 'Pengeluaran' %}selected{% endif %}>Pengeluaran</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-success">{{ action }}</button>
+  <a href="{{ url_for('index') }}" class="btn btn-secondary">Batal</a>
+</form>
+{% endblock %}

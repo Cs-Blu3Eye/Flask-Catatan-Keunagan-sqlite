@@ -6,6 +6,7 @@ A simple yet powerful **personal finance tracker** built with **Flask**, **SQLit
   <img src="static/dashboard.png" alt="Dashboard Overview" width="600">
   <p><em>📊 Dashboard overview with summary and navigation</em></p>
 </div>
+
 ---
 
 ## ✨ Features
